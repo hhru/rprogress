@@ -38,12 +38,12 @@ var API = {
         checkMaxPosition();
     },
 
-    step: (to) => {
-        if (arguments.length > 0 && to !== undefined) {
-            if (to > 100) {
+    step: (...args) => {
+        if (args.length > 0 && args[0] !== undefined) {
+            if (args[0]> 100) {
                 throw new Error('Maximum progress size is 100. You can not set progress value bigger than 100');
             }
-            position = to;
+            position = args[0];
         } else {
             position += 10;
         }
